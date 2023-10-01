@@ -9,11 +9,11 @@ import librosa
 import matplotlib.pyplot as plt
 
 # Global constants
-MIXTURES = Path("masking_network", "mask_data", "mixture")
-SOUND_EVENTS = Path("masking_network", "mask_data", "sound_event")
-PICKLE_DATA = Path("masking_network", "pickle_data")
-MASKING_NET_DIR = Path("masking_network", "model")
-TEST_RESULTS = Path("masking_network", "test_result")
+MIXTURES = Path("source_separation", "mask_data", "mixtures")
+SOUND_EVENTS = Path("source_separation", "mask_data", "targets")
+PICKLE_DATA = Path("source_separation", "pickle_data")
+MASKING_NET_DIR = Path("source_separation", "model")
+TEST_RESULTS = Path("source_separation", "test_result")
 
 
 def get_files_from_dir_with_os(dir_name: str) \
