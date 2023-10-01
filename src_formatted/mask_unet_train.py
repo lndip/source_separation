@@ -1,7 +1,6 @@
 import numpy as np
 import torch 
 
-
 from torch import no_grad
 from torch.optim import Adam
 from torch.utils.data import random_split
@@ -9,7 +8,7 @@ from pathlib import Path
 
 from getting_and_init_the_data import get_dataset, get_data_loader
 from mask_unet import MaskUnet
-from utils import PICKLE_DATA, save_masking_state_dict
+from utils import PICKLE_DATA, MASKING_NET_DIR
 from parameters import *
 
 
@@ -136,7 +135,7 @@ def train_masking_network(batch_size,
         if val_loss < lowest_validation_loss:
             lowest_validation_loss = val_loss
             best_validation_epoch = epoch
-            torch.save(mask_unet.state_dict(), Path("masking_network","best_mask", f"#{job_idx}", "best_mask.pt"))
+            torch.save(mask_unet.state_dict(), Path(MASKING_NET_DIR, f"#{job_idx}", "best_mask.pt"))
 
         if epoch - best_validation_epoch > patience:
             print('\nExiting due to early stopping', end='\n\n')
@@ -144,7 +143,7 @@ def train_masking_network(batch_size,
             break
 
     # Load the best model into the mask
-    mask_unet.load_state_dict(torch.load(Path("masking_network","best_mask", f"#{job_idx}", "best_mask.pt")))
+    mask_unet.load_state_dict(torch.load(Path(MASKING_NET_DIR, f"#{job_idx}", "best_mask.pt")))
     # Save the model's state dict
     mask_file_path = save_masking_state_dict(mask_unet, job_idx)
 
