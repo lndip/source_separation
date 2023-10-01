@@ -31,7 +31,7 @@ To run the code, `python`, `pytorch`, `torchaudio`, `numpy`, and `librosa` are r
 
 # How to run
 <ol>
-  <li>Have the data in the mask_data folder as the structure above. Every sample in training and validation set must of equal length for batch processing.</li>
+  <li>Have the data in the `mask_data` folder as the structure above. Every sample in training and validation set must of equal length for batch processing.</li>
   <li>Run `serialize.py` to obtain the pickle data.</li>
   <li>Run `mask_main.py` to execute the training and inference.</li>
 </ol>
