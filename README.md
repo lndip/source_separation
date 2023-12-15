@@ -1,5 +1,5 @@
 # Source separation neural network
-This is the implementation of the source separation neural network which employs the U-net structure
+This is the implementation of the source separation neural network which employs the U-net structure. The implementation refers to [Singing Voice Separation with Deep U-Net Convolutional Networks](https://openaccess.city.ac.uk/id/eprint/19289/1/).
 
 # Model architecture
 The encoder and decoder blocks of the U-net each contains 6 convolutional blocks. The model takes the STFT magnitude spectrogram of the input signal and outputs masked STFT spectrogram.
